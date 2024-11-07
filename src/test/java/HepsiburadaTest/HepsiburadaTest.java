@@ -38,8 +38,8 @@ public class HepsiburadaTest {
         LogFunction.logStepResult(scenario, "Kullanıcı telefon ve aksesuarlar kategorisine gider");
     }
 
-    @And("Kullanıcı {string} araması yapar")
-    public void kullaniciAramasiYapar(String urun) {
+    @And("Kullanıcı Searchbox'a {string} yazar")
+    public void kullaniciAramaYapar(String urun) {
         hepsiburadaPage.performProductSearch(urun);
         LogFunction.logStepResult(scenario, "Kullanıcı " + urun + " araması yapar");
     }

@@ -4,6 +4,6 @@ Feature: Hepsiburada App Test
     * Kullanıcı siteye gider
     * Kullanıcı elektronik tuşuna basar
     * Kullanıcı telefon ve aksesuarlar kategorisine gider
-    * Kullanıcı "Samsung Telefon" araması yapar
+    * Kullanıcı Searchbox'a "Samsung" yazar
     * İlk ürünün adını ve fiyatını görüntüler
 
