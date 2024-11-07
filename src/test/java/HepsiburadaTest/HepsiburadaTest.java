@@ -23,50 +23,30 @@ public class HepsiburadaTest {
 
     @Given("Kullanıcı siteye gider")
     public void uygulamaBaslatildi() {
-        try {
-            LogFunction.logStepResult(scenario, "Kullanıcı siteye gidiyor");
-        } catch (Exception e) {
-            scenario.log("Hata oluştu: " + e.getMessage());
-        }
+        LogFunction.logStepResult(scenario, "Kullanıcı siteye gidiyor");
     }
 
     @When("Kullanıcı elektronik tuşuna basar")
     public void kullaniciElektronikTusunaBasar() {
-        try {
-            hepsiburadaPage.navigateToElectronics();
-            LogFunction.logStepResult(scenario, "Kullanıcı elektronik tuşuna basar");
-        } catch (Exception e) {
-            scenario.log("Hata oluştu: " + e.getMessage());
-        }
+        hepsiburadaPage.navigateToElectronics();
+        LogFunction.logStepResult(scenario, "Kullanıcı elektronik tuşuna basar");
     }
 
     @And("Kullanıcı telefon ve aksesuarlar kategorisine gider")
     public void kullaniciTelefonVeAksesuarlarKategorisineGider() {
-        try {
-            hepsiburadaPage.navigateToPhoneAccessories();
-            LogFunction.logStepResult(scenario, "Kullanıcı telefon ve aksesuarlar kategorisine gider");
-        } catch (Exception e) {
-            scenario.log("Hata oluştu: " + e.getMessage());
-        }
+        hepsiburadaPage.navigateToPhoneAccessories();
+        LogFunction.logStepResult(scenario, "Kullanıcı telefon ve aksesuarlar kategorisine gider");
     }
 
     @And("Kullanıcı {string} araması yapar")
     public void kullaniciAramasiYapar(String urun) {
-        try {
-            hepsiburadaPage.performProductSearch(urun);
-            LogFunction.logStepResult(scenario, "Kullanıcı " + urun + " araması yapar");
-        } catch (Exception e) {
-            scenario.log("Hata oluştu: " + e.getMessage());
-        }
+        hepsiburadaPage.performProductSearch(urun);
+        LogFunction.logStepResult(scenario, "Kullanıcı " + urun + " araması yapar");
     }
 
     @Then("İlk ürünün adını ve fiyatını görüntüler")
     public void ilkUrununAdiniVeFiyatiniGoruntuler() {
-        try {
-            hepsiburadaPage.displayFirstProductInfo();
-            LogFunction.logStepResult(scenario, "İlk ürünün adını ve fiyatını görüntüler");
-        } catch (Exception e) {
-            scenario.log("Hata oluştu: " + e.getMessage());
-        }
+        hepsiburadaPage.displayFirstProductInfo();
+        LogFunction.logStepResult(scenario, "İlk ürünün adını ve fiyatını görüntüler");
     }
 }
