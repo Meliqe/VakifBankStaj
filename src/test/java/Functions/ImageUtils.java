@@ -12,11 +12,9 @@ public class ImageUtils {
         ByteArrayInputStream inputStream = new ByteArrayInputStream(imageBytes);
         BufferedImage originalImage = ImageIO.read(inputStream);
 
-        // Orijinal genişlik ve yükseklik değerlerini al
         int originalWidth = originalImage.getWidth();
         int originalHeight = originalImage.getHeight();
 
-        // Yüzde değere göre yeni genişlik ve yükseklik hesapla
         int width = (originalWidth * percentage) / 100;
         int height = (originalHeight * percentage) / 100;
 
