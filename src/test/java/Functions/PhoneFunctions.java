@@ -12,10 +12,6 @@ public class PhoneFunctions extends BaseMethods {
         click(menuKey);
     }
 
-    public void goToMenuScroll(String menuKey) {
-        scrollAndClick(menuKey);
-    }
-
     public void searchProduct(String searchBarKey, String productName) {
         search(searchBarKey, productName);
     }

@@ -31,36 +31,6 @@ public class BaseMethods {
         }
     }
 
-
-    public void scrollAndClick(String locatorKey) {
-        try {
-            // Önce kaydırmayı yap
-            scrollToElement(locatorKey);
-            // Daha sonra tıklama işlemini yap
-            click(locatorKey);
-            System.out.println(locatorKey + " öğesine scroll ile tıklandı.");
-        } catch (Exception e) {
-            e.printStackTrace();
-            throw new AssertionError("Hata oluştu (scrollAndClick): " + e.getMessage());
-        }
-    }
-
-
-    public void scrollToElement(String locatorKey) {
-        try {
-            By locator = LocatorUtils.getLocator(locatorKey);
-            String uiSelector = "new UiScrollable(new UiSelector()" +
-                    ".scrollable(true).instance(0))" +
-                    ".scrollIntoView(new UiSelector()" +
-                    ".descriptionContains(\"" + locator.toString() + "\").instance(0));";
-            driver.findElement(AppiumBy.androidUIAutomator(uiSelector));
-            System.out.println(locatorKey + " öğesi scroll ile ekrana getirildi.");
-        } catch (Exception e) {
-            e.printStackTrace();
-            throw new AssertionError("Scroll işlemi sırasında hata oluştu: " + e.getMessage());
-        }
-    }
-
     public void search(String locatorKey, String text) {
         try {
             By locator = LocatorUtils.getLocator(locatorKey);

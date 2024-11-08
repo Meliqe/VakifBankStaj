@@ -14,7 +14,7 @@ public class Page extends PhoneFunctions {
     }
 
     public void navigateToPhoneAccessories() {
-        goToMenuScroll("TELEFON_AKSESUAR");
+        goToMenu("TELEFON_AKSESUAR");
     }
 
     public void performProductSearch(String productName) {
