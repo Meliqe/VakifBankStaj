@@ -15,9 +15,6 @@ public class BaseMethods {
         this.driver = driver;
     }
 
-    /**
-     * Görünen öğe için doğrudan tıklama.
-     */
     public void click(String locatorKey) {
         try {
             By locator = LocatorUtils.getLocator(locatorKey);
