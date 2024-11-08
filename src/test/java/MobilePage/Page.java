@@ -9,8 +9,8 @@ public class Page extends PhoneFunctions {
     public static final By ELEKTRONIK_BTN = By.xpath("//android.widget.ImageView[@content-desc='elektronik ürünlerde fırsatları kaçırma']");
     public static final By TELEFON_AKSESUAR = By.xpath("//android.widget.TextView[contains(@text, 'Telefon & Aksesuar')]");
     public static final By SEARCH_BAR = By.xpath("//android.widget.EditText");
-    public static final By PRODUCT_BOX = By.xpath("//android.widget.TextView[@text='Samsung']");
-    public static final By PRODUCT_PRICE = By.xpath(".//android.widget.TextView[contains(@text, 'Satış Fiyatı')]");
+    public static final By PRODUCT_BOX = By.xpath("//android.widget.TextView[@content-desc='en-avantajli-fiyatlar en-avantajli-fiyatlar Samsung Galaxy']");
+    public static final By PRODUCT_PRICE = By.xpath("//android.widget.TextView[@text='Satış Fiyatı']");
 
 
 

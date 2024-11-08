@@ -8,9 +8,17 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
 public class ImageUtils {
-    public static byte[] resizeImage(byte[] imageBytes, int width, int height) throws IOException {
+    public static byte[] resizeImage(byte[] imageBytes, int percentage) throws IOException {
         ByteArrayInputStream inputStream = new ByteArrayInputStream(imageBytes);
         BufferedImage originalImage = ImageIO.read(inputStream);
+
+        // Orijinal genişlik ve yükseklik değerlerini al
+        int originalWidth = originalImage.getWidth();
+        int originalHeight = originalImage.getHeight();
+
+        // Yüzde değere göre yeni genişlik ve yükseklik hesapla
+        int width = (originalWidth * percentage) / 100;
+        int height = (originalHeight * percentage) / 100;
 
         BufferedImage resizedImage = new BufferedImage(width, height, originalImage.getType());
         Graphics2D g = resizedImage.createGraphics();
