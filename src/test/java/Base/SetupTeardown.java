@@ -1,4 +1,4 @@
-package Utility;
+package Base;
 
 import Functions.ScreenShotFunction;
 import io.cucumber.java.After;

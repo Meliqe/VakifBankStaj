@@ -1,17 +1,17 @@
-package Functions;
+package Page;
 
-import Utility.DriverManager;
-import Utility.LocatorUtils;
+import Base.DriverManager;
+import Base.LocatorUtils;
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-import static Utility.WaitUtil.waitUntilVisibleByLocator;
+import static Base.WaitUtil.waitUntilVisibleByLocator;
 
 public class PhoneFunctions {
 
     private AndroidDriver driver;
-    public PhoneFunctions() {
+    public PhoneFunctions(AndroidDriver driver) {
         this.driver = DriverManager.getDriver();
     }
 

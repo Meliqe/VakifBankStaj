@@ -1,13 +1,12 @@
 package HepsiburadaTest;
 
 import Functions.BaseMethods;
-import Utility.DriverManager;
+import Base.DriverManager;
 import Functions.LogFunction;
 import io.appium.java_client.android.AndroidDriver;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import io.cucumber.java.en.*;
-import io.cucumber.java.en_scouse.An;
 
 
 public class HepsiburadaTest{
