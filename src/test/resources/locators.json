@@ -16,12 +16,12 @@
   },
   {
     "key": "PRODUCT_BOX",
-    "value": "//android.widget.TextView[@text='Samsung']",
+    "value": "(//android.widget.TextView[@text='Samsung']/following-sibling::android.widget.TextView[1])[1]",
     "locatorType": "xpath"
   },
   {
     "key": "PRODUCT_PRICE",
-    "value": "//android.widget.TextView[@text='Satış Fiyatı']/following-sibling::android.widget.TextView\n",
+    "value": "(//android.widget.TextView[@text='Samsung'])[1]/following-sibling::android.widget.TextView[contains(@text, 'Satış Fiyatı')]",
     "locatorType": "xpath"
   }
 ]

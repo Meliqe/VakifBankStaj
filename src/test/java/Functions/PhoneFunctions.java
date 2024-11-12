@@ -1,22 +1,30 @@
 package Functions;
 
+import Utility.DriverManager;
+import Utility.LocatorUtils;
 import io.appium.java_client.android.AndroidDriver;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
-public class PhoneFunctions extends BaseMethods {
+import static Utility.WaitUtil.waitUntilVisibleByLocator;
 
-    public PhoneFunctions(AndroidDriver driver) {
-        super(driver);
+public class PhoneFunctions {
+
+    private AndroidDriver driver;
+    public PhoneFunctions() {
+        this.driver = DriverManager.getDriver();
     }
 
-    public void goToMenu(String menuKey) {
-        click(menuKey);
-    }
-
-    public void searchProduct(String searchBarKey, String productName) {
-        search(searchBarKey, productName);
-    }
-
-    public void displayFirstProduct(String productKey, String priceKey) {
-        getFirstElementInfo(productKey, priceKey);
+    public void displayFirstProduct(String productDesc, String productPrice) {
+        try {
+            By locator_Desc = LocatorUtils.getLocator(productDesc);
+            By locator_Price = LocatorUtils.getLocator(productPrice);
+            WebElement element_desc=waitUntilVisibleByLocator(driver,locator_Desc);
+            String desc=element_desc.getText();WebElement element_price=waitUntilVisibleByLocator(driver,locator_Price);
+            String price=element_price.getText();System.out.println("Desc: "+desc+", Price: "+price);
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new AssertionError("Hata oluştu (getFirstElementInfo): " + e.getMessage());
+        }
     }
 }

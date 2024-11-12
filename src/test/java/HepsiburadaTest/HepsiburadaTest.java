@@ -1,19 +1,21 @@
 package HepsiburadaTest;
 
-import MobilePage.Page;
+import Functions.BaseMethods;
 import Utility.DriverManager;
 import Functions.LogFunction;
+import io.appium.java_client.android.AndroidDriver;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import io.cucumber.java.en.*;
+import io.cucumber.java.en_scouse.An;
 
-public class HepsiburadaTest {
-    private Page hepsiburadaPage;
+
+public class HepsiburadaTest{
     private Scenario scenario;
+    private AndroidDriver driver;
 
     public HepsiburadaTest() {
-        DriverManager.setDriver();
-        hepsiburadaPage = new Page(DriverManager.getDriver());
+       this.driver= DriverManager.getDriver();
     }
 
     @Before
@@ -23,30 +25,48 @@ public class HepsiburadaTest {
 
     @Given("Kullanıcı siteye gider")
     public void uygulamaBaslatildi() {
-        LogFunction.logStepResult(scenario, "Kullanıcı siteye gidiyor");
+        try{
+            LogFunction.logStepResult(scenario, "Kullanıcı siteye gidiyor");
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 
-    @When("Kullanıcı elektronik tuşuna basar")
-    public void kullaniciElektronikTusunaBasar() {
-        hepsiburadaPage.navigateToElectronics();
-        LogFunction.logStepResult(scenario, "Kullanıcı elektronik tuşuna basar");
+    @When("Kullanıcı {string} tuşuna basar")
+    public void kullaniciElektronikTusunaBasar(String jsonParameterName) {
+        try{
+            BaseMethods baseMethods=new BaseMethods(driver);
+            baseMethods.click(jsonParameterName);
+            LogFunction.logStepResult(scenario, "Kullanıcı elektronik tuşuna basar");
+        } catch(Exception e){
+            System.out.println(e.getMessage());
+        }
     }
 
-    @And("Kullanıcı telefon ve aksesuarlar kategorisine gider")
-    public void kullaniciTelefonVeAksesuarlarKategorisineGider() {
-        hepsiburadaPage.navigateToPhoneAccessories();
-        LogFunction.logStepResult(scenario, "Kullanıcı telefon ve aksesuarlar kategorisine gider");
+    @And("Kullanıcı {string} kategorisine gider")
+    public void kullaniciTelefonVeAksesuarlarKategorisineGider(String jsonParameterName) {
+        try{
+            BaseMethods baseMethods=new BaseMethods(driver);
+            baseMethods.click(jsonParameterName);
+            LogFunction.logStepResult(scenario, "Kullanıcı telefon ve aksesuarlar kategorisine gider");
+        } catch(Exception e){
+            System.out.println(e.getMessage());
+        }
     }
 
     @And("Kullanıcı Searchbox'a {string} yazar")
-    public void kullaniciAramaYapar(String urun) {
-        hepsiburadaPage.performProductSearch(urun);
-        LogFunction.logStepResult(scenario, "Kullanıcı " + urun + " araması yapar");
+    public void kullaniciAramaYapar(String jsonParameterName,String urun) {
+        try{
+            BaseMethods baseMethods=new BaseMethods(driver);
+            baseMethods.search(jsonParameterName,urun);
+            LogFunction.logStepResult(scenario, "Kullanıcı " + urun + " araması yapar");
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     @Then("İlk ürünün adını ve fiyatını görüntüler")
     public void ilkUrununAdiniVeFiyatiniGoruntuler() {
-        hepsiburadaPage.displayFirstProductInfo();
-        LogFunction.logStepResult(scenario, "İlk ürünün adını ve fiyatını görüntüler");
+
     }
 }

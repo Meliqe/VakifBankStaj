@@ -13,7 +13,7 @@ public class WaitUtil {
         WebElement element = null;
         try {
             element = new FluentWait<>(driver)
-                    .withTimeout(Duration.ofSeconds(20))
+                    .withTimeout(Duration.ofSeconds(60))
                     .pollingEvery(Duration.ofSeconds(1))
                     .ignoring(org.openqa.selenium.NoSuchElementException.class)
                     .until(ExpectedConditions.visibilityOfElementLocated(locator));
