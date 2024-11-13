@@ -7,7 +7,7 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         features = "src/test/resources/Features",
-        glue = {"HepsiburadaTest","Utility"},
+        glue = {"HepsiburadaTest","Base"},
         plugin = {"pretty", "html:target/cucumber-reports.html", "json:target/cucumber-reports/cucumber.json"},
         monochrome = true,
         dryRun = false,
