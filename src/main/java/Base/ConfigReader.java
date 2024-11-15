@@ -21,6 +21,11 @@ public class ConfigReader {
     }
 
     public static String getProperty(String key) {
-        return properties.getProperty(key);
+        String value = properties.getProperty(key);
+        if (value == null || value.trim().isEmpty()) {
+            throw new RuntimeException("Eksik veya hatalı property: " + key);
+        }
+        return value;
     }
+
 }

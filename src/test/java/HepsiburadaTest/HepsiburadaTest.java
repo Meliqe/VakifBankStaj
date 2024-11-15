@@ -34,7 +34,7 @@ public class HepsiburadaTest{
     @When("Kullanıcı {string} tuşuna basar")
     public void kullaniciElektronikTusunaBasar(String jsonParameterName) {
         try{
-            BaseMethods baseMethods=new BaseMethods(driver);
+            BaseMethods baseMethods=new BaseMethods();
             baseMethods.click(jsonParameterName);
             LogFunction.logStepResult(scenario, "Kullanıcı elektronik tuşuna basar");
         } catch(Exception e){
@@ -45,7 +45,7 @@ public class HepsiburadaTest{
     @And("Kullanıcı {string} kategorisine gider")
     public void kullaniciTelefonVeAksesuarlarKategorisineGider(String jsonParameterName) {
         try{
-            BaseMethods baseMethods=new BaseMethods(driver);
+            BaseMethods baseMethods=new BaseMethods();
             baseMethods.click(jsonParameterName);
             LogFunction.logStepResult(scenario, "Kullanıcı telefon ve aksesuarlar kategorisine gider");
         } catch(Exception e){
@@ -53,10 +53,10 @@ public class HepsiburadaTest{
         }
     }
 
-    @And("Kullanıcı Searchbox'a {string} yazar")
+    @And("Kullanıcı {string}'a {string} yazar")
     public void kullaniciAramaYapar(String jsonParameterName,String urun) {
         try{
-            BaseMethods baseMethods=new BaseMethods(driver);
+            BaseMethods baseMethods=new BaseMethods();
             baseMethods.search(jsonParameterName,urun);
             LogFunction.logStepResult(scenario, "Kullanıcı " + urun + " araması yapar");
         } catch (Exception e) {

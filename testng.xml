@@ -1,6 +1,13 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Cucumber Test Suite" parallel="methods" thread-count="2">
-    <test name="Cucumber Tests">
+<suite name="Mobile Test Suite" parallel="tests" thread-count="2">
+    <test name="Test on Emulator 1">
+        <parameter name="deviceIndex" value="1" />
+        <classes>
+            <class name="Runners.RunCucumberTestNG" />
+        </classes>
+    </test>
+    <test name="Test on Emulator 2">
+        <parameter name="deviceIndex" value="2" />
         <classes>
             <class name="Runners.RunCucumberTestNG" />
         </classes>

@@ -11,7 +11,7 @@ import static Base.WaitUtil.waitUntilVisibleByLocator;
 public class BaseMethods {
     protected AndroidDriver driver;
 
-    public BaseMethods(AndroidDriver driver) { //paramtere geçiyoruz ki paralel koşumlarda sıkıntı olmasın
+    public BaseMethods() {
         this.driver = DriverManager.getDriver();
     }
     public void click(String locatorKey) {
