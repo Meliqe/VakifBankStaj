@@ -3,31 +3,23 @@ package Base;
 import Functions.ScreenShotFunction;
 import io.cucumber.java.After;
 import io.cucumber.java.AfterStep;
-import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import io.appium.java_client.android.AndroidDriver;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 
+//selenium grid
 public class SetupTeardown {
-
-
-    @Parameters("deviceIndex")
-    @BeforeClass
+    @BeforeClass()
+    @Parameters({"deviceIndex"})
     public void startDriver(String deviceIndex) {
         try {
-            if (deviceIndex == null || deviceIndex.trim().isEmpty()) {
-                throw new RuntimeException("deviceIndex parametresi alınamadı.");
-            }
-            System.out.println("Device Index: " + deviceIndex);
             DriverManager.setDriver(deviceIndex);
         } catch (Exception e) {
             e.printStackTrace();
             throw new RuntimeException("Driver başlatılamadı: " + e.getMessage());
         }
     }
-
-
     @AfterStep
     public void takeScreenshotAfterStep(Scenario scenario) {
         if (scenario.isFailed()) {

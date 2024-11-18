@@ -11,9 +11,8 @@ public class DriverManager {
 
     public static void setDriver(String deviceIndex) {
         if (driver.get() == null) {
-            DriverManager.deviceIndex = deviceIndex; // deviceIndex'i burada global olarak ayarlıyoruz
+            DriverManager.deviceIndex = deviceIndex;
             try {
-                // driver oluşturuluyor
                 UiAutomator2Options options = new UiAutomator2Options();
                 options.setPlatformName(ConfigReader.getProperty("device" + deviceIndex + ".platformName"));
                 options.setPlatformVersion(ConfigReader.getProperty("device" + deviceIndex + ".platformVersion"));
@@ -53,4 +52,3 @@ public class DriverManager {
         }
     }
 }
-
