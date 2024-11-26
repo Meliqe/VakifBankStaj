@@ -2,17 +2,15 @@ Feature: Hepsiburada App Test
 @HepsiburadaTest
 
   Scenario: Kullanıcı Samsung telefon arar
-    * Kullanıcı siteye gider
-    * Kullanıcı "ELEKTRONIK_BTN" tuşuna basar
-    * Kullanıcı "TELEFON_AKSESUAR" kategorisine gider
-    * Kullanıcı "SEARCH_BAR"'a "Samsung" yazar
-    * İlk ürünün adını ve fiyatını görüntüler
+  * Kullanıcı mobil uygulamaya girer
+  * "SEARCH_BAR"'a tıklar
+  * Kullancı "SEARCH_BAR"'a "Samsung Telefon" yazar
+  * Gelen ürünlerden ilkinin "PRODUCT_NAME" ve "PRODUCT_PRICE" alır
 
   @HepsiburadaTest2
 
-  Scenario: Kullanıcı Samsung telefon arar
-    * Kullanıcı siteye gider
-    * Kullanıcı "ELEKTRONIK_BTN" tuşuna basar
-    * Kullanıcı "TELEFON_AKSESUAR" kategorisine gider
-    * Kullanıcı "SEARCH_BAR"'a "Samsung" yazar
-    * İlk ürünün adını ve fiyatını görüntüler
+  Scenario: Kullanıcı Samsung telefon arar 2
+   * Kullanıcı mobil uygulamaya girer
+   * "SEARCH_BAR"'a tıklar
+   * Kullancı "SEARCH_BAR"'a "Samsung Telefon" yazar
+   * Gelen ürünlerden ilkinin "PRODUCT_NAME" ve "PRODUCT_PRICE" alır

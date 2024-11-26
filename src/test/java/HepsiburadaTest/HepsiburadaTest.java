@@ -3,6 +3,7 @@ package HepsiburadaTest;
 import Functions.BaseMethods;
 import Base.DriverManager;
 import Functions.LogFunction;
+import Page.PhoneFunctions;
 import io.appium.java_client.android.AndroidDriver;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
@@ -13,17 +14,17 @@ public class HepsiburadaTest{
     private Scenario scenario;
     private AndroidDriver driver;
 
-    public HepsiburadaTest() {
-       this.driver= DriverManager.getDriver();
-    }
-
     @Before
     public void setUp(Scenario scenario) {
         this.scenario = scenario;
     }
 
-    @Given("Kullanıcı siteye gider")
-    public void uygulamaBaslatildi() {
+    public HepsiburadaTest() {
+       this.driver= DriverManager.getDriver();
+    }
+
+    @Given("Kullanıcı mobil uygulamaya girer")
+    public void uygulamaBaslatildi(){
         try{
             LogFunction.logStepResult(scenario, "Kullanıcı siteye gidiyor");
         } catch (Exception e) {
@@ -31,30 +32,20 @@ public class HepsiburadaTest{
         }
     }
 
-    @When("Kullanıcı {string} tuşuna basar")
-    public void kullaniciElektronikTusunaBasar(String jsonParameterName) {
+    @When("{string}'a tıklar")
+    public void aramaButonunaTikla(String jsonParameterName){
         try{
-            BaseMethods baseMethods=new BaseMethods();
+            BaseMethods baseMethods = new BaseMethods();
             baseMethods.click(jsonParameterName);
-            LogFunction.logStepResult(scenario, "Kullanıcı elektronik tuşuna basar");
-        } catch(Exception e){
+            LogFunction.logStepResult(scenario, "Arama baslatildi");
+        }catch (Exception e){
             System.out.println(e.getMessage());
         }
+
     }
 
-    @And("Kullanıcı {string} kategorisine gider")
-    public void kullaniciTelefonVeAksesuarlarKategorisineGider(String jsonParameterName) {
-        try{
-            BaseMethods baseMethods=new BaseMethods();
-            baseMethods.click(jsonParameterName);
-            LogFunction.logStepResult(scenario, "Kullanıcı telefon ve aksesuarlar kategorisine gider");
-        } catch(Exception e){
-            System.out.println(e.getMessage());
-        }
-    }
-
-    @And("Kullanıcı {string}'a {string} yazar")
-    public void kullaniciAramaYapar(String jsonParameterName,String urun) {
+    @And("Kullancı {string}'a {string} yazar")
+    public void aramaKutusunaSamsungYazar(String jsonParameterName,String urun) {
         try{
             BaseMethods baseMethods=new BaseMethods();
             baseMethods.search(jsonParameterName,urun);
@@ -64,8 +55,15 @@ public class HepsiburadaTest{
         }
     }
 
-    @Then("İlk ürünün adını ve fiyatını görüntüler")
-    public void ilkUrununAdiniVeFiyatiniGoruntuler() {
-
+    @Then("Gelen ürünlerden ilkinin {string} ve {string} alır")
+    public void ilkUrunIsimVeFiyat(String productName,String productPrice)
+    {
+        try{
+            PhoneFunctions phoneFunctions =new PhoneFunctions();
+            phoneFunctions.displayFirstProduct(productName,productPrice);
+        }
+        catch(Exception e){
+            System.out.println(e.getMessage());
+        }
     }
 }

@@ -1,27 +1,17 @@
 [
   {
-    "key": "ELEKTRONIK_BTN",
-    "value": "//android.widget.ImageView[@content-desc='elektronik ürünlerde fırsatları kaçırma']",
-    "locatorType": "xpath"
-  },
-  {
-    "key": "TELEFON_AKSESUAR",
-    "value": "//android.widget.TextView[contains(@text, 'Telefon & Aksesuar')]",
-    "locatorType": "xpath"
-  },
-  {
     "key": "SEARCH_BAR",
-    "value": "//android.widget.EditText",
+    "value": "//android.widget.EditText[@text='Ürün, kategori veya marka ara']",
     "locatorType": "xpath"
   },
   {
-    "key": "PRODUCT_BOX",
-    "value": "(//android.widget.TextView[@text='Samsung']/following-sibling::android.widget.TextView[1])[1]",
+    "key": "PRODUCT_NAME",
+    "value": "//android.widget.TextView[contains(@text,'Samsung')]",
     "locatorType": "xpath"
   },
   {
     "key": "PRODUCT_PRICE",
-    "value": "(//android.widget.TextView[@text='Samsung'])[1]/following-sibling::android.widget.TextView[contains(@text, 'Satış Fiyatı')]",
+    "value": "//android.widget.TextView[contains(@text,'TL')]",
     "locatorType": "xpath"
   }
 ]

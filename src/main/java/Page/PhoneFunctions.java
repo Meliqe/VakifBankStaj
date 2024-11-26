@@ -11,19 +11,25 @@ import static Base.WaitUtil.waitUntilVisibleByLocator;
 public class PhoneFunctions {
 
     private AndroidDriver driver;
-    public PhoneFunctions(AndroidDriver driver) {
+    public PhoneFunctions() {
         this.driver = DriverManager.getDriver();
     }
 
     public void displayFirstProduct(String productDesc, String productPrice) {
         try {
-            By locator_Desc = LocatorUtils.getLocator(productDesc);
+
+            By locator_Name = LocatorUtils.getLocator(productDesc);
             By locator_Price = LocatorUtils.getLocator(productPrice);
-            WebElement element_desc=waitUntilVisibleByLocator(driver,locator_Desc);
-            String desc=element_desc.getText();WebElement element_price=waitUntilVisibleByLocator(driver,locator_Price);
-            String price=element_price.getText();System.out.println("Desc: "+desc+", Price: "+price);
+
+            WebElement firstProductDesc = waitUntilVisibleByLocator(driver, locator_Name);
+            WebElement firstProductPrice = waitUntilVisibleByLocator(driver, locator_Price);
+
+            String desc = firstProductDesc.getText();
+            String price = firstProductPrice.getText();
+
+            System.out.println("İlk Ürün: " + desc + ", Fiyat: " + price);
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
             throw new AssertionError("Hata oluştu (getFirstElementInfo): " + e.getMessage());
         }
     }
