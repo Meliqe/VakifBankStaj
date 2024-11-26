@@ -11,7 +11,7 @@ import io.appium.java_client.android.AndroidDriver;
 public class SetupTeardown {
 
     @Before()
-    public void startDriver(String deviceIndex) {
+    public void startDriver() {
         try {
             DriverManager.setDriver();
         } catch (Exception e) {
